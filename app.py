@@ -79,5 +79,5 @@ if st.button("Proses Prediksi"):
     st.dataframe(result_df)
     
     # Grafik prediksi
-    #st.subheader("Grafik Prediksi Curah Hujan")
-    #st.bar_chart(result_df.set_index('Hari')['Prediksi Curah Hujan (mm)'])
+    st.subheader("Grafik Prediksi Curah Hujan")
+    st.bar_chart(result_df.set_index('Hari')['Prediksi Curah Hujan (mm)'])

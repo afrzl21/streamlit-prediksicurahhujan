@@ -80,7 +80,7 @@ if st.button("Proses Prediksi"):
         'RH_avg (%)': [data[1] for data in input_data],
         'ss (jam)': [data[2] for data in input_data],
         'ff_avg (km/jam)': [data[3] for data in input_data],
-        'Prediksi Curah Hujan (mm)': np.round(predictions, 2)
+        'Prediksi Curah Hujan (mm)': np.round(predictions, 2),
         'Kategori': [classify_rainfall(mm) for mm in predictions]
     })
     

@@ -63,6 +63,15 @@ if st.button("Proses Prediksi"):
     # Prediksi
     y_norm = bagging.predict(X_norm)
     predictions = denormalize(y_norm)
+
+    # Klasifikasi intensitas hujan
+    def classify_rainfall(mm):
+        if mm < 5:
+            return "Hujan Rendah"
+        elif mm < 20:
+            return "Hujan Sedang"
+        else:
+            return "Hujan Lebat"
     
     # Buat DataFrame hasil
     result_df = pd.DataFrame({
@@ -72,6 +81,7 @@ if st.button("Proses Prediksi"):
         'ss (jam)': [data[2] for data in input_data],
         'ff_avg (km/jam)': [data[3] for data in input_data],
         'Prediksi Curah Hujan (mm)': np.round(predictions, 2)
+        'Kategori': [classify_rainfall(mm) for mm in predictions]
     })
     
     # Tampilkan hasil
